@@ -82,7 +82,7 @@ nav.main a:hover::after{right:0}
 
 /* ---------- hero ---------- */
 .hero{position:relative;background:var(--onyx);color:#fff;overflow:hidden;isolation:isolate}
-.hero-bg{position:absolute;inset:0;z-index:-2;background:url(images/hero-sparkle.jpg) center/cover;opacity:.22;filter:saturate(1.1)}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:url(images/hero-sparkle.jpg) center/cover;opacity:.4;filter:saturate(1.1)}
 .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at 75% 45%,transparent 0,rgba(0,0,0,.6) 55%,#000 100%)}
 #twinkle{position:absolute;inset:0;z-index:-1;width:100%;height:100%}
 .hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:3rem;min-height:min(760px,calc(100svh - 120px));padding-block:4.5rem 5rem}
@@ -96,7 +96,7 @@ nav.main a:hover::after{right:0}
 
 .orbit{position:relative;aspect-ratio:1;width:min(100%,560px);justify-self:center}
 .orbit .disc{position:absolute;inset:17%;border-radius:50%;overflow:hidden;box-shadow:0 0 0 8px #fff,0 0 0 9px rgba(0,0,0,.4),0 30px 80px rgba(116,211,200,.18)}
-.orbit .disc img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.04)}
+.orbit .disc img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.35);transform-origin:60% 46%}
 .orbit svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .ring-text{font:500 19px var(--sans);fill:#fff}
 .spin{transform-origin:300px 300px;animation:spin 60s linear infinite}
