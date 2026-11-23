@@ -178,22 +178,48 @@ nav.main a:hover::after{right:0}
 @keyframes hint{30%{left:30%}70%{left:68%}}
 
 /* ---------- testimonials ---------- */
-.reviews{background:var(--rinse);padding-block:clamp(4.5rem,9vw,8rem)}
-.reviews .wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(2rem,5vw,5rem)}
-.stars{display:flex;gap:4px;color:var(--gilt);margin:1.4rem 0 .6rem}
-.stars svg{width:22px}
-.quote-box{position:relative}
-.quote-box blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.35rem,2.4vw,2.05rem);line-height:1.25}
-.quote-box blockquote[hidden]{display:none}
-.quote-box blockquote.show{animation:in .55s ease forwards}
-.quote-box cite{display:block;font:500 1rem var(--sans);font-style:normal;color:var(--lagoon-deep);margin-top:1.6rem}
-.qmark{font-family:var(--serif);font-size:9rem;line-height:.6;color:var(--champagne);height:3.6rem}
-.q-nav{display:flex;gap:.6rem;align-items:center;margin-top:2.4rem}
-.q-nav button{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:background .2s,color .2s}
-.q-nav button:hover{background:var(--ink);color:var(--surface)}
+.reviews{position:relative;overflow:hidden;isolation:isolate;padding-block:clamp(5rem,10vw,9rem);background:radial-gradient(60% 80% at 85% 50%,rgba(116,211,200,.22),transparent 70%),radial-gradient(50% 70% at 10% 100%,rgba(217,195,154,.35),transparent 70%),var(--rinse)}
+.reviews::before{content:"";position:absolute;z-index:-1;right:-8%;top:50%;width:min(62vw,760px);aspect-ratio:1;transform:translateY(-50%);border-radius:50%;border:1px dashed rgba(154,118,40,.35);box-shadow:0 0 0 70px rgba(255,255,255,.18),0 0 0 71px rgba(154,118,40,.18)}
+.reviews .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2.5rem,6vw,6rem);align-items:center}
+.rv-intro h2{max-width:11ch}
+.stars{display:flex;gap:4px;color:var(--gilt)}
+.stars svg{width:20px}
+.rv-score{display:flex;align-items:center;gap:1rem;margin:1.8rem 0 1.4rem}
+.faces{display:flex}
+.faces span{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font:400 1.15rem var(--serif);color:#fff;background:#000;box-shadow:0 0 0 3px var(--rinse),inset 0 0 0 2px var(--lagoon);margin-left:-10px}
+.faces span:first-child{margin-left:0}
+.faces span:nth-child(2){box-shadow:0 0 0 3px var(--rinse),inset 0 0 0 2px var(--champagne)}
+.rv-score small{display:block;color:var(--muted);font-size:.9rem}
+.rv-intro p{color:var(--muted);max-width:34ch}
+.more-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--ink);font-weight:500;text-decoration:none;border-bottom:1.5px solid var(--champagne);padding-bottom:.2rem;transition:color .2s,border-color .2s}
+.more-link:hover{color:var(--lagoon-deep);border-color:var(--lagoon)}
+.deck{display:grid;padding:2.4rem 2.4rem 0 0}
+.card{grid-area:1/1;position:relative;background:#000;color:#fff;border-radius:34px;padding:clamp(2rem,4vw,3.2rem);box-shadow:0 30px 60px -20px rgba(0,40,36,.45);border:1px solid rgba(217,195,154,.4);transform-origin:50% 100%;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .5s,filter .5s;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 100% 0,rgba(217,195,154,.22),transparent 60%),radial-gradient(50% 50% at 0 100%,rgba(116,211,200,.14),transparent 70%);pointer-events:none}
+.card[data-pos="0"]{z-index:3}
+.card[data-pos="1"]{z-index:2;transform:translate(1.2rem,-1.2rem) rotate(2.5deg) scale(.97);opacity:.75;filter:brightness(.7)}
+.card[data-pos="2"]{z-index:1;transform:translate(2.4rem,-2.4rem) rotate(5deg) scale(.94);opacity:.45;filter:brightness(.5)}
+.card > *{transition:opacity .4s}
+.card:not([data-pos="0"]) > *{opacity:0}
+.card.toss{transform:translateX(-30%) rotate(-10deg) scale(.95);opacity:0}
+.card .qm{position:absolute;right:1.6rem;top:-.2rem;font:400 11rem/1 var(--serif);color:var(--champagne);opacity:.25;pointer-events:none}
+.card .stars{color:var(--champagne)}
+.card blockquote{position:relative;margin:1.2rem 0 2rem;font-family:var(--serif);font-size:clamp(1.25rem,2.1vw,1.75rem);line-height:1.32}
+.card.short blockquote{font-size:clamp(1.8rem,3.4vw,2.8rem);line-height:1.15}
+.who{position:relative;display:flex;align-items:center;gap:1rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.14)}
+.who .av{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font:400 1.3rem var(--serif);background:radial-gradient(circle at 35% 30%,#fff3d6,#d9c39a 45%,#6b5226);color:#000;flex:none}
+.who b{display:block;font-weight:500;font-size:1.05rem}
+.who small{color:var(--lagoon);font-size:.9rem}
+.q-nav{display:flex;gap:.6rem;align-items:center;margin-top:2rem}
+.q-nav button.arrow{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:background .2s,color .2s}
+.q-nav button.arrow:hover{background:var(--ink);color:var(--surface)}
 .q-nav svg{width:20px}
-.q-count{margin-left:.6rem;color:var(--muted);font-variant-numeric:tabular-nums}
-.more-link{color:var(--lagoon-deep);font-weight:500}
+.dots{display:flex;gap:.4rem;margin-left:.8rem}
+.dots button{width:34px;height:5px;border-radius:5px;border:0;padding:0;background:var(--line);cursor:pointer;position:relative;overflow:hidden}
+.dots button i{position:absolute;inset:0;background:var(--gilt);transform:scaleX(0);transform-origin:left}
+.dots button[aria-current="true"] i{animation:fill 8s linear forwards}
+.reviews.paused .dots button[aria-current="true"] i{animation-play-state:paused}
+@keyframes fill{to{transform:scaleX(1)}}
 
 /* ---------- areas constellation ---------- */
 .areas{background:#000;color:#fff;padding-block:clamp(4.5rem,9vw,7rem);overflow:hidden}
@@ -284,6 +310,13 @@ footer .f-brand p{max-width:34ch}
   .town-list{display:block}
   footer .grid{grid-template-columns:1fr}
   .pick{grid-template-columns:1fr 1fr}
+  .deck{padding:1.1rem .9rem 0 0}
+  .card{padding:1.6rem 1.4rem}
+  .card[data-pos="1"]{transform:translate(.5rem,-.5rem) rotate(1.5deg) scale(.98)}
+  .card[data-pos="2"]{transform:translate(1rem,-1rem) rotate(3deg) scale(.96)}
+  .card .qm{font-size:7rem;right:1rem}
+  .card blockquote{font-size:1.2rem}
+  .reviews::before{width:120vw;right:-60%}
   .orbit .badge{position:relative;right:auto;bottom:auto;margin:1rem auto 0;max-width:none;text-align:center}
 }
 @media (hover:none),(pointer:coarse){.float-img{display:none}}
@@ -484,23 +517,40 @@ footer .f-brand p{max-width:34ch}
 <!-- TESTIMONIALS -->
 <section class="reviews" id="testimonials">
   <div class="wrap">
-    <div>
+    <div class="rv-intro">
       <h2>Our customers say it best.</h2>
-      <div class="stars" aria-label="Five stars">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg>
+      <div class="rv-score">
+        <div class="faces" aria-hidden="true"><span>J</span><span>K</span><span>M</span></div>
+        <div><div class="stars" aria-label="Five stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg></div><small>From homes and offices we clean</small></div>
       </div>
-      <p style="color:var(--muted);max-width:32ch">Join our growing list of satisfied clients and experience the Start and Sparkle difference for yourself.</p>
+      <p>Join our growing list of satisfied clients and experience the Start and Sparkle difference for yourself.</p>
       <a class="more-link" href="https://startandsparkle.ca/testimaonials">Read all testimonials</a>
     </div>
-    <div class="quote-box" aria-live="polite">
-      <div class="qmark" aria-hidden="true">&ldquo;</div>
-      <blockquote class="show">In my opinion, Start and Sparkle is the best! They are affordable and always go the extra mile to make my home look and feel so clean. I’ve relied on their service every two weeks for the last year and I have nothing but positive experiences with Michelle and her team. 10/10, I recommend!<cite>Janet S.</cite></blockquote>
-      <blockquote hidden>I’m so impressed with Michelle’s cleaning team and the attention to detail. We’ve had a few cleaners the last few years and none matched Michelle’s standard. They’ve also cleaned my office building for years. Very reliable and trustworthy. I would highly recommend.<cite>Karla B.</cite></blockquote>
-      <blockquote hidden>So nice to come home after you have been working your magic.<cite>Marlene W.</cite></blockquote>
+    <div>
+      <div class="deck" aria-live="polite">
+      <figure class="card" data-pos="0">
+        <span class="qm" aria-hidden="true">&ldquo;</span>
+        <div class="stars" aria-label="Five stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg></div>
+        <blockquote>In my opinion, Start and Sparkle is the best! They are affordable and always go the extra mile to make my home look and feel so clean. I’ve relied on their service every two weeks for the last year and I have nothing but positive experiences with Michelle and her team. 10/10, I recommend!</blockquote>
+        <figcaption class="who"><span class="av" aria-hidden="true">J</span><span><b>Janet S.</b><small>Cleaned every two weeks</small></span></figcaption>
+      </figure>
+      <figure class="card" data-pos="1" aria-hidden="true" inert>
+        <span class="qm" aria-hidden="true">&ldquo;</span>
+        <div class="stars" aria-label="Five stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg></div>
+        <blockquote>I’m so impressed with Michelle’s cleaning team and the attention to detail. We’ve had a few cleaners the last few years and none matched Michelle’s standard. They’ve also cleaned my office building for years. Very reliable and trustworthy. I would highly recommend.</blockquote>
+        <figcaption class="who"><span class="av" aria-hidden="true">K</span><span><b>Karla B.</b><small>Home and office client</small></span></figcaption>
+      </figure>
+      <figure class="card short" data-pos="2" aria-hidden="true" inert>
+        <span class="qm" aria-hidden="true">&ldquo;</span>
+        <div class="stars" aria-label="Five stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg></div>
+        <blockquote>So nice to come home after you have been working your magic.</blockquote>
+        <figcaption class="who"><span class="av" aria-hidden="true">M</span><span><b>Marlene W.</b><small>Home client</small></span></figcaption>
+      </figure>
+      </div>
       <div class="q-nav">
-        <button class="prev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <button class="next" aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button>
-        <span class="q-count">1 / 3</span>
+        <button class="arrow prev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button class="arrow next" aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button>
+        <div class="dots"><button aria-label="Janet S." aria-current="true"><i></i></button><button aria-label="Karla B."><i></i></button><button aria-label="Marlene W."><i></i></button></div>
       </div>
     </div>
   </div>
@@ -661,11 +711,22 @@ footer .f-brand p{max-width:34ch}
     var name = b.textContent.trim(); bImg.src = b.dataset.b; aImg.src = b.dataset.a; bImg.alt = name + ' before cleaning'; aImg.alt = name + ' after cleaning';
     rng.value = 50; sl.style.setProperty('--pos', '50%'); }); });
 
-  // testimonials
-  var qs = document.querySelectorAll('.quote-box blockquote'), qi = 0, cnt = document.querySelector('.q-count');
-  function show(n){ qs[qi].hidden = true; qs[qi].classList.remove('show'); qi = (n + qs.length) % qs.length; qs[qi].hidden = false; qs[qi].classList.add('show'); cnt.textContent = (qi + 1) + ' / ' + qs.length; }
-  document.querySelector('.q-nav .next').addEventListener('click', function(){ show(qi + 1); });
-  document.querySelector('.q-nav .prev').addEventListener('click', function(){ show(qi - 1); });
+  // testimonials deck
+  var rv = document.querySelector('.reviews'), cards = [].slice.call(document.querySelectorAll('.deck .card')), dots = document.querySelectorAll('.dots button'), cur = 0, timer;
+  function lay(){ cards.forEach(function(c, i){ var pos = (i - cur + cards.length) % cards.length; c.dataset.pos = pos;
+      if (pos === 0){ c.removeAttribute('aria-hidden'); c.inert = false; } else { c.setAttribute('aria-hidden', 'true'); c.inert = true; } });
+    dots.forEach(function(d, i){ d.setAttribute('aria-current', i === cur); var bar = d.querySelector('i'); bar.style.animation = 'none'; bar.offsetWidth; bar.style.animation = ''; }); }
+  function go(n, toss){ var front = cards[cur];
+    if (toss && !reduce){ front.classList.add('toss'); setTimeout(function(){ front.classList.remove('toss'); }, 380); }
+    cur = (n + cards.length) % cards.length; setTimeout(lay, toss && !reduce ? 200 : 0); restart(); }
+  function restart(){ clearInterval(timer); if (!reduce) timer = setInterval(function(){ if (!rv.classList.contains('paused')) go(cur + 1, true); }, 8000); }
+  document.querySelector('.q-nav .next').addEventListener('click', function(){ go(cur + 1, true); });
+  document.querySelector('.q-nav .prev').addEventListener('click', function(){ go(cur - 1, false); });
+  dots.forEach(function(d, i){ d.addEventListener('click', function(){ if (i !== cur) go(i, true); }); });
+  ['mouseenter', 'focusin'].forEach(function(ev){ rv.addEventListener(ev, function(){ rv.classList.add('paused'); }); });
+  ['mouseleave', 'focusout'].forEach(function(ev){ rv.addEventListener(ev, function(){ rv.classList.remove('paused'); }); });
+  if (reduce) document.querySelectorAll('.dots i').forEach(function(i){ i.style.transform = 'none'; });
+  lay(); restart();
 
   // constellation draw on view
   var sky = document.getElementById('sky');
